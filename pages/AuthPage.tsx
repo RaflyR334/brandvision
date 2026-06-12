@@ -5,18 +5,18 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useTheme } from 'next-themes';
-import { 
-  Sparkles, 
-  Loader2, 
-  Eye, 
-  EyeOff, 
-  Globe, 
-  Mail, 
-  User as UserIcon, 
-  Phone, 
-  Lock, 
-  ArrowLeft, 
-  Sun, 
+import {
+  Sparkles,
+  Loader2,
+  Eye,
+  EyeOff,
+  Globe,
+  Mail,
+  User as UserIcon,
+  Phone,
+  Lock,
+  ArrowLeft,
+  Sun,
   Moon,
   ShieldCheck,
   FileText,
@@ -27,12 +27,12 @@ import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '../components/ui/dialog';
-import { 
-  Select, 
-  SelectContent, 
-  SelectItem, 
-  SelectTrigger, 
-  SelectValue 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
 } from '../components/ui/select';
 import { toast } from 'sonner';
 import { mockBackend } from '../lib/mock-backend';
@@ -64,7 +64,7 @@ const AuthPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const isLogin = location.pathname === '/auth/login';
-  
+
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -107,10 +107,10 @@ const AuthPage: React.FC = () => {
     try {
       await new Promise(resolve => setTimeout(resolve, 1200));
       mockBackend.login(data.email, data.password);
-      
+
       toast.success(
-        i18n.language === 'id' 
-          ? "Selamat datang kembali!" 
+        i18n.language === 'id'
+          ? "Selamat datang kembali!"
           : "Welcome back to your workspace!"
       );
       navigate('/dashboard');
@@ -131,7 +131,7 @@ const AuthPage: React.FC = () => {
       await new Promise(resolve => setTimeout(resolve, 1500));
       // Save number to phoneNumber using updated register method
       mockBackend.register(data.name, data.email, data.password, data.phoneNumber);
-      
+
       toast.success(
         i18n.language === 'id'
           ? "Registrasi sukses! Selamat datang."
@@ -161,8 +161,8 @@ const AuthPage: React.FC = () => {
       {/* Top Controls Toolbar */}
       <header className="w-full max-w-5xl mx-auto flex items-center justify-between gap-4 py-1.5 z-20 shrink-0">
         <Link to="/">
-          <Button 
-            variant="ghost" 
+          <Button
+            variant="ghost"
             className="flex items-center gap-1.5 text-xs font-bold rounded-2xl h-9.5 px-3.5 bg-white/40 dark:bg-slate-900/45 border border-slate-200/50 dark:border-slate-800/60 hover:bg-white dark:hover:bg-slate-900 cursor-pointer shadow-xs"
           >
             <ArrowLeft className="w-4 h-4 text-slate-500" />
@@ -172,13 +172,13 @@ const AuthPage: React.FC = () => {
 
         <div className="flex items-center gap-2">
           {/* Quick Language Toggle */}
-          <Select 
-            value={currentLang} 
+          <Select
+            value={currentLang}
             onValueChange={(val) => {
               i18n.changeLanguage(val);
               toast.success(
-                val === 'id' 
-                  ? "Bahasa diubah ke Bahasa Indonesia!" 
+                val === 'id'
+                  ? "Bahasa diubah ke Bahasa Indonesia!"
                   : "Language updated to English!"
               );
             }}
@@ -194,15 +194,15 @@ const AuthPage: React.FC = () => {
           </Select>
 
           {/* Theme Toggle Button */}
-          <Button 
+          <Button
             variant="ghost"
             size="icon"
             onClick={() => {
               const nextTh = isDarkMode ? 'light' : 'dark';
               setTheme(nextTh);
               toast.success(
-                currentLang === 'id' 
-                  ? `Mode ${nextTh === 'dark' ? "Gelap" : "Terang"} diaktifkan!` 
+                currentLang === 'id'
+                  ? `Mode ${nextTh === 'dark' ? "Gelap" : "Terang"} diaktifkan!`
                   : `${nextTh === 'dark' ? "Dark" : "Light"} mode enabled!`
               );
             }}
@@ -216,12 +216,12 @@ const AuthPage: React.FC = () => {
       {/* Main Content Area */}
       <main className="flex-1 flex flex-col items-center justify-center my-auto z-10 w-full min-h-0">
         <div className="w-full max-w-[420px] flex flex-col min-h-0">
-          
+
           {/* Logo Heading */}
           <div className="text-center space-y-1 mb-3.5 shrink-0 animate-in fade-in duration-300">
             <div className="inline-flex items-center gap-1.5 justify-center">
-              <div className="w-9 h-9 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/10">
-                <Sparkles className="text-white w-4.5 h-4.5 animate-pulse" />
+              <div className="w-8 h-8 rounded-xl flex items-center justify-center shadow-md shadow-indigo-500/10 overflow-hidden bg-indigo-600">
+                <img src="/logo.png" alt="BrandVision Logo" className="w-full h-full object-contain" />
               </div>
               <span className="text-xl md:text-2.5xl font-extrabold tracking-tight bg-gradient-to-r from-slate-900 to-indigo-950 dark:from-white dark:to-indigo-200 bg-clip-text text-transparent">
                 BrandVision AI
@@ -248,8 +248,8 @@ const AuthPage: React.FC = () => {
                       {currentLang === 'id' ? "Masuk ke Akun" : "Welcome Back"}
                     </CardTitle>
                     <CardDescription className="text-xs font-semibold text-slate-400 dark:text-slate-500 leading-tight">
-                      {currentLang === 'id' 
-                        ? "Masukkan kredensial Anda untuk mengakses dashboard analitik." 
+                      {currentLang === 'id'
+                        ? "Masukkan kredensial Anda untuk mengakses dashboard analitik."
                         : "Enter your registered credentials to access your live metrics dashboard."}
                     </CardDescription>
                   </CardHeader>
@@ -263,9 +263,9 @@ const AuthPage: React.FC = () => {
                         </Label>
                         <div className="relative">
                           <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                          <Input 
-                            id="email-login" 
-                            type="email" 
+                          <Input
+                            id="email-login"
+                            type="email"
                             placeholder={currentLang === 'id' ? "nama@contoh.id" : "name@example.com"}
                             disabled={isLoading}
                             {...loginForm.register('email')}
@@ -288,9 +288,9 @@ const AuthPage: React.FC = () => {
                         </div>
                         <div className="relative">
                           <Lock className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                          <Input 
-                            id="password-login" 
-                            type={showPassword ? "text" : "password"} 
+                          <Input
+                            id="password-login"
+                            type={showPassword ? "text" : "password"}
                             placeholder={currentLang === 'id' ? "Sandi Anda" : "Your Password"}
                             disabled={isLoading}
                             {...loginForm.register('password')}
@@ -314,9 +314,9 @@ const AuthPage: React.FC = () => {
 
                     <CardFooter className="flex flex-col space-y-3 px-5 pb-4 pt-1 shrink-0">
                       <div className="flex flex-col gap-2 w-full">
-                        <Button 
-                          type="submit" 
-                          className="w-full h-10 md:h-11 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer transition-all shadow-md shadow-indigo-650/10" 
+                        <Button
+                          type="submit"
+                          className="w-full h-10 md:h-11 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer transition-all shadow-md shadow-indigo-650/10"
                           disabled={isLoading}
                         >
                           {isLoading ? (
@@ -328,16 +328,16 @@ const AuthPage: React.FC = () => {
                             currentLang === 'id' ? "Masuk Sekarang" : "Sign In"
                           )}
                         </Button>
-                        
-                        <Button 
-                          type="button" 
-                          variant="ghost" 
+
+                        <Button
+                          type="button"
+                          variant="ghost"
                           className="w-full h-9.5 rounded-xl text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50/50 dark:hover:bg-slate-800/40 border border-indigo-200/40 dark:border-slate-800/80 cursor-pointer transition-all"
                           onClick={() => {
                             mockBackend.login('demo@brandvision.ai', 'demo_password');
                             toast.success(
-                              currentLang === 'id' 
-                                ? "Selamat datang di Demo Account!" 
+                              currentLang === 'id'
+                                ? "Selamat datang di Demo Account!"
                                 : "Welcome! Loaded simulation sandbox successfully."
                             );
                             navigate('/dashboard');
@@ -349,8 +349,8 @@ const AuthPage: React.FC = () => {
 
                       <p className="text-center text-xs text-slate-405 dark:text-slate-400 font-semibold pt-1">
                         {currentLang === 'id' ? "Belum memiliki akun? " : "Don't have an account? "}
-                        <Link 
-                          to="/auth/register" 
+                        <Link
+                          to="/auth/register"
                           className="text-indigo-600 dark:text-indigo-400 font-extrabold hover:underline"
                         >
                           {currentLang === 'id' ? "Daftar di sini" : "Register here"}
@@ -375,15 +375,15 @@ const AuthPage: React.FC = () => {
                       {currentLang === 'id' ? "Daftar Akun Baru" : "Register Account"}
                     </CardTitle>
                     <CardDescription className="text-xs font-semibold text-slate-400 dark:text-slate-500 leading-tight">
-                      {currentLang === 'id' 
-                        ? "Lengkapi detail formulir di bawah ini untuk memulai registrasi." 
+                      {currentLang === 'id'
+                        ? "Lengkapi detail formulir di bawah ini untuk memulai registrasi."
                         : "Complete the credentials fields below to initialize your cloud workspace profile."}
                     </CardDescription>
                   </CardHeader>
 
                   <form onSubmit={registerForm.handleSubmit(onRegisterSubmit)} className="flex flex-col min-h-0 overflow-hidden">
                     <CardContent className="space-y-1.5 md:space-y-2.5 px-5 pb-2.5 pt-1 overflow-y-auto max-h-[42dvh] md:max-h-none scrollbar-thin">
-                      
+
                       {/* Name input */}
                       <div className="space-y-0.5">
                         <Label htmlFor="name-register" className="text-[10px] md:text-xs font-bold text-slate-650 dark:text-slate-350">
@@ -391,9 +391,9 @@ const AuthPage: React.FC = () => {
                         </Label>
                         <div className="relative">
                           <UserIcon className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                          <Input 
-                            id="name-register" 
-                            type="text" 
+                          <Input
+                            id="name-register"
+                            type="text"
                             placeholder={currentLang === 'id' ? "Nama Anda" : "John Doe"}
                             disabled={isLoading}
                             {...registerForm.register('name')}
@@ -414,9 +414,9 @@ const AuthPage: React.FC = () => {
                         </Label>
                         <div className="relative">
                           <Phone className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                          <Input 
-                            id="phone-register" 
-                            type="text" 
+                          <Input
+                            id="phone-register"
+                            type="text"
                             placeholder={currentLang === 'id' ? "Contoh: +6281234..." : "e.g., +1 234 567 890"}
                             disabled={isLoading}
                             {...registerForm.register('phoneNumber')}
@@ -437,9 +437,9 @@ const AuthPage: React.FC = () => {
                         </Label>
                         <div className="relative">
                           <Mail className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                          <Input 
-                            id="email-register" 
-                            type="email" 
+                          <Input
+                            id="email-register"
+                            type="email"
                             placeholder={currentLang === 'id' ? "nama@contoh.id" : "name@example.com"}
                             disabled={isLoading}
                             {...registerForm.register('email')}
@@ -460,9 +460,9 @@ const AuthPage: React.FC = () => {
                         </Label>
                         <div className="relative">
                           <Lock className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                          <Input 
-                            id="password-register" 
-                            type={showPassword ? "text" : "password"} 
+                          <Input
+                            id="password-register"
+                            type={showPassword ? "text" : "password"}
                             placeholder={currentLang === 'id' ? "Min. 8 karakter" : "Min. 8 characters"}
                             disabled={isLoading}
                             {...registerForm.register('password')}
@@ -490,9 +490,9 @@ const AuthPage: React.FC = () => {
                         </Label>
                         <div className="relative">
                           <Lock className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                          <Input 
-                            id="confirm-register" 
-                            type={showConfirmPassword ? "text" : "password"} 
+                          <Input
+                            id="confirm-register"
+                            type={showConfirmPassword ? "text" : "password"}
                             placeholder={currentLang === 'id' ? "Ulangi password" : "Repeat password"}
                             disabled={isLoading}
                             {...registerForm.register('confirmPassword')}
@@ -516,9 +516,9 @@ const AuthPage: React.FC = () => {
                     </CardContent>
 
                     <CardFooter className="flex flex-col space-y-2.5 px-5 pb-3.5 pt-1 shrink-0 animate-in fade-in duration-300">
-                      <Button 
-                        type="submit" 
-                        className="w-full h-10 md:h-11 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer transition-all shadow-md shadow-indigo-650/10" 
+                      <Button
+                        type="submit"
+                        className="w-full h-10 md:h-11 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer transition-all shadow-md shadow-indigo-650/10"
                         disabled={isLoading}
                       >
                         {isLoading ? (
@@ -533,8 +533,8 @@ const AuthPage: React.FC = () => {
 
                       <p className="text-center text-xs text-slate-405 dark:text-slate-400 font-semibold pt-0.5">
                         {currentLang === 'id' ? "Sudah memiliki akun? " : "Already have an account? "}
-                        <Link 
-                          to="/auth/login" 
+                        <Link
+                          to="/auth/login"
                           className="text-indigo-600 dark:text-indigo-400 font-extrabold hover:underline"
                         >
                           {currentLang === 'id' ? "Masuk di sini" : "Log in here"}
@@ -554,8 +554,8 @@ const AuthPage: React.FC = () => {
         <div className="flex flex-col items-center gap-0.5">
           <p>
             {currentLang === 'id' ? "Dengan mengeklik Lanjutkan, Anda menyetujui " : "By clicking continue, you agree to our "}
-            <button 
-              type="button" 
+            <button
+              type="button"
               onClick={() => handleOpenModal('terms')}
               className="underline text-indigo-505 dark:text-indigo-450 hover:text-indigo-600 dark:hover:text-indigo-300 font-semibold cursor-pointer focus:outline-hidden"
             >
@@ -564,8 +564,8 @@ const AuthPage: React.FC = () => {
             {" "}
             {currentLang === 'id' ? "dan" : "and"}
             {" "}
-            <button 
-              type="button" 
+            <button
+              type="button"
               onClick={() => handleOpenModal('privacy')}
               className="underline text-indigo-505 dark:text-indigo-450 hover:text-indigo-600 dark:hover:text-indigo-300 font-semibold cursor-pointer focus:outline-hidden"
             >
@@ -598,7 +598,7 @@ const AuthPage: React.FC = () => {
               )}
             </DialogTitle>
             <DialogDescription className="text-xs font-semibold text-slate-400">
-              {currentLang === 'id' 
+              {currentLang === 'id'
                 ? `Diperbarui terakhir Juni 2026. Menjamin integrasi sandbox AI yang aman.`
                 : `Last updated June 12, 12026. Securing and validating offline integrity parameters.`}
             </DialogDescription>
@@ -609,7 +609,7 @@ const AuthPage: React.FC = () => {
             {modalType === 'terms' ? (
               <>
                 <p>
-                  {currentLang === 'id' 
+                  {currentLang === 'id'
                     ? "Syarat Layanan ini mengatur akses, pendaftaran, dan seluruh visualisasi personal brand di bawah domain BrandVision AI."
                     : "These terms govern your active access, registration, and visual identity synthesis processed by BrandVision AI."}
                 </p>
@@ -684,8 +684,8 @@ const AuthPage: React.FC = () => {
           </div>
 
           <div className="mt-6 flex justify-end border-t border-slate-100 dark:border-slate-800 pt-4">
-            <Button 
-              type="button" 
+            <Button
+              type="button"
               onClick={() => setModalOpen(false)}
               className="bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 dark:text-slate-950 text-white rounded-xl h-10 px-6 text-xs font-bold cursor-pointer"
             >

@@ -161,8 +161,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       {/* Mobile Top Header */}
       <header className="md:hidden flex items-center justify-between px-4 py-3 border-b bg-white dark:bg-slate-900 border-slate-150/40 dark:border-slate-800/80 z-30 sticky top-0 transition-colors">
         <Link to="/" className="flex items-center gap-1.5">
-          <div className="w-8 h-8 bg-indigo-600 rounded-xl flex items-center justify-center shadow-md shadow-indigo-500/10">
-            <Sparkles className="text-white w-4 h-4 animate-pulse" />
+          <div className="w-8 h-8 rounded-xl flex items-center justify-center shadow-md shadow-indigo-500/10 overflow-hidden bg-indigo-600">
+            <img src="/logo.png" alt="BrandVision Logo" className="w-full h-full object-contain" />
           </div>
           <span className="font-extrabold text-base tracking-tight bg-gradient-to-r from-slate-950 to-indigo-600 dark:from-white dark:to-indigo-305 bg-clip-text text-transparent">BrandVision</span>
         </Link>
@@ -215,8 +215,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div>
             {/* Sidebar Logo */}
             <Link to="/" className="hidden md:flex items-center gap-2.5 mb-8 px-2 py-1">
-              <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-600/20">
-                <Sparkles className="text-white w-5 h-5" />
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-600/20 overflow-hidden bg-indigo-600">
+                <img src="/logo.png" alt="BrandVision Logo" className="w-full h-full object-contain" />
               </div>
               <div>
                 <span className="font-extrabold text-xl tracking-tight bg-gradient-to-r from-slate-950 to-slate-800 dark:from-white dark:to-slate-200 bg-clip-text text-transparent">BrandVision</span>

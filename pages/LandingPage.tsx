@@ -484,8 +484,8 @@ const LandingPage: React.FC = () => {
           
           {/* Logo Brand */}
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('/')}>
-            <div className="w-10 h-10 bg-indigo-600 dark:bg-indigo-500 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/20">
-              <Sparkles className="text-white w-5 h-5 animate-pulse" />
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/20 overflow-hidden bg-indigo-600">
+              <img src="/logo.png" alt="BrandVision Logo" className="w-full h-full object-contain" />
             </div>
             <div>
               <span className="text-lg font-extrabold tracking-tight bg-gradient-to-r from-slate-900 via-indigo-600 to-indigo-500 dark:from-white dark:via-indigo-400 dark:to-teal-300 bg-clip-text text-transparent">
@@ -1669,8 +1669,8 @@ const LandingPage: React.FC = () => {
             
             <div className="md:col-span-2">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-                  <Sparkles className="text-white w-4.5 h-4.5" />
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden bg-indigo-600">
+                  <img src="/logo.png" alt="BrandVision Logo" className="w-full h-full object-contain" />
                 </div>
                 <span className="text-lg font-bold text-slate-900 dark:text-white tracking-tight">BrandVision AI</span>
               </div>
